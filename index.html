@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="libs/glide/glide.core.min.css" />
+    <link rel="stylesheet" href="libs/glide/glide.theme.min.css" />
+    <!-- 引入字体图标 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 头部导航栏区域 -->
+    <header>
+      <div class="logo">原子科技</div>
+      <nav>
+        <a href="#">首页</a>
+        <a href="#">关于我们</a>
+        <a href="#">成功案例</a>
+        <a href="#">服务流程</a>
+        <a href="#">团队介绍</a>
+        <a href="#">公司动态</a>
+        <i class="fas fa-search"></i>
+        <div class="burger">
+          <div class="burger-line1"></div>
+          <div class="burger-line2"></div>
+          <div class="burger-line3"></div>
+        </div>
+      </nav>
+    </header>
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <div class="glide__slides">
+          <!-- 轮播图1 -->
+          <div class="glide__slide">
+            <div class="slide-caption">
+              <h1>用科技点缀人生，让科技融入理想</h1>
+              <h3>
+                科技创新大平台，智慧生活新引擎。依靠科技进步推动经济跨越式发展。用创新点缀人生，让科技融入理想。
+              </h3>
+              <button class="explore-btn">探索更多</button>
+            </div>
+            <div class="backdrop"></div>
+            <img src="images/people-in-couch-1024248.jpg" alt="" />
+          </div>
+          <!-- 轮播图2 -->
+          <div class="glide__slide">
+            <div class="slide-caption left">
+              <h1>科技改变世界，梦想造就未来</h1>
+              <h3>
+                立足科学发展，着力自主创新。加速科技进步，为全市经济社会发展提供有力支撑。凝聚科技创意，成就科技新梦想。
+              </h3>
+              <button class="explore-btn">探索更多</button>
+            </div>
+            <div class="backdrop"></div>
+            <video
+              src="videos/working-man.mp4"
+              muted
+              autoplay
+              loop="true"
+            ></video>
+          </div>
+        </div>
+      </div>
+      <!-- 轮播图左右切换箭头 -->
+      <div class="glibe__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+          <
+        </button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+          >
+        </button>
+      </div>
+      <!-- 轮播图小圆点 -->
+      <div class="glide__bullets" data-glide-el="controls[nav]">
+        <button class="glide__bullet" data-glide-dir="=0"></button>
+        <button class="glide__bullet" data-glide-dir="=1"></button>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <section class="about-us">
+        <h2 class="title1">关于我们</h2>
+        <p class="intro">
+          网络公司不仅仅是提供域名注册，空间租用，网站开发，网站建设与网络营销活动策划相关的企业组织。
+        </p>
+        <div class="features">
+          <div class="feature">
+            <i class="fas fa-lightbulb"></i>
+            <h4 class="feature-title">品牌创意</h4>
+            <p class="feature-content">
+              为企业设计独特的并能完全呈现企业价值观的视觉门户
+            </p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-chart-line"></i>
+            <h4 class="feature-title">整合营销</h4>
+            <p class="feature-content">
+              通过市场进入分析，制定网络营销战略，网站营销实施
+            </p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-shopping-cart"></i>
+            <h4 class="feature-title">电子商务</h4>
+            <p class="feature-content">
+              根据企业需求，并设不同的营销渠道，通过网上直销
+            </p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-desktop"></i>
+            <h4 class="feature-title">网页设计</h4>
+            <p class="feature-content">
+              通过网站建设，智能建站，域名主机，企业邮箱
+            </p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-tachometer-alt"></i>
+            <h4 class="feature-title">网站优化</h4>
+            <p class="feature-content">
+              网站推广是指将网站推广到国内各大知名网站和搜索引擎
+            </p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-server"></i>
+            <h4 class="feature-title">网站架设</h4>
+            <p class="feature-content">
+              通过域名绑定和服务器，把网站展示给全世界
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="showcases section-bg">
+        <h2 class="title1">成功案例</h2>
+        <div class="filter-btns">
+          <button class="filter-btn active">全部</button>
+          <button class="filter-btn">WEB</button>
+          <button class="filter-btn">移动</button>
+          <button class="filter-btn">科研</button>
+        </div>
+        <div class="cases">
+          <div class="case-item">
+            <img
+              src="images/gray-laptop-computer-showing-html-codes-in-shallow-focus-160107.jpg"
+              alt=""
+            />
+          </div>
+          <div class="case-item">
+            <img src="images/photo-of-imac-near-macbook-1029757.jpg" alt="" />
+          </div>
+          <div class="case-item">
+            <img
+              src="images/apple-apple-device-design-desk-285814.jpg"
+              alt=""
+            />
+          </div>
+          <div class="case-item">
+            <img src="images/apple-laptop-notebook-office-39284.jpg" alt="" />
+          </div>
+          <div class="case-item">
+            <img src="images/person-holding-a-smartphone-892757.jpg" alt="" />
+          </div>
+          <div class="case-item">
+            <img
+              src="images/person-using-black-and-white-smartphone-and-holding-blue-230544.jpg"
+              alt=""
+            />
+          </div>
+          <div class="case-item">
+            <img src="images/blur-close-up-code-computer-546819.jpg" alt="" />
+          </div>
+          <div class="case-item">
+            <img
+              src="images/bokeh-photography-of-person-holding-turned-on-iphone-1440727.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="libs/glide/glide.min.js"></script>
+    <script src="libs/anime/anime.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
