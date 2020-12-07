@@ -32,6 +32,28 @@ header {
   z-index: 200;
 }
 
+header.sticky {
+  position: fixed;
+  background-color: #fff;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
+  animation: dropDown 0.5s ease-in-out forwards;
+}
+
+header.sticky .logo,
+header.sticky nav a,
+header.sticky nav i {
+  color: var(--text-color-darker);
+}
+
+@keyframes dropDown {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 .logo {
   font-size: 24px;
   font-weight: 600;
@@ -488,4 +510,77 @@ section.service {
 .activity:hover {
   transform: translateY(-20px) scale(1.05);
   box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.1);
+}
+
+/* 底部信息 */
+footer {
+  margin-top: 124px;
+  background-color: #181818;
+  display: grid;
+  justify-items: center;
+  padding-top: 72px;
+  padding-bottom: 24px;
+}
+
+.footer-menus {
+  width: 100%;
+  max-width: 1180px;
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  padding: 0 80px;
+  position: relative;
+}
+
+.menu-title {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.contact-us {
+  justify-self: start;
+  color: var(--text-color-lightest);
+}
+.contact-us p:not(:first-child) {
+  padding-bottom: 16px;
+}
+
+.menu-items li {
+  list-style: none;
+  padding-bottom: 8px;
+}
+
+.menu-items li a {
+  text-decoration: none;
+  font-weight: 300;
+  color: var(--text-color-lightest);
+}
+
+.icp-info {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.icp-info,
+.rights {
+  /* 占满一行 */
+  grid-column: 1/-1;
+  justify-self: center;
+  color: #fff;
+}
+
+.scrollToTop a {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: fixed;
+  bottom: 66px;
+  right: 66px;
 }
