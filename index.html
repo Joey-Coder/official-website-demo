@@ -11,19 +11,20 @@
       href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="libs/scrollReveal/scrollreveal.min.js"></script>
     <title>Document</title>
   </head>
   <body>
     <!-- 头部导航栏区域 -->
-    <header class="sticky">
+    <header>
       <div class="logo">原子科技</div>
       <nav>
-        <a href="#">首页</a>
-        <a href="#">关于我们</a>
-        <a href="#">成功案例</a>
-        <a href="#">服务流程</a>
-        <a href="#">团队介绍</a>
-        <a href="#">公司动态</a>
+        <a href="#home">首页</a>
+        <a href="#about-us">关于我们</a>
+        <a href="#showcases">成功案例</a>
+        <a href="#service">服务流程</a>
+        <a href="#team-intro">团队介绍</a>
+        <a href="#company-activities">公司动态</a>
         <i class="fas fa-search"></i>
         <div class="burger">
           <div class="burger-line1"></div>
@@ -32,7 +33,7 @@
         </div>
       </nav>
     </header>
-    <div class="glide">
+    <div class="glide" id="home">
       <div class="glide__track" data-glide-el="track">
         <div class="glide__slides">
           <!-- 轮播图1 -->
@@ -82,7 +83,7 @@
       </div>
     </div>
     <div class="content-wrapper">
-      <section class="about-us">
+      <section class="about-us" id="about-us">
         <h2 class="title1">关于我们</h2>
         <p class="intro">
           网络公司不仅仅是提供域名注册，空间租用，网站开发，网站建设与网络营销活动策划相关的企业组织。
@@ -132,7 +133,7 @@
           </div>
         </div>
       </section>
-      <section class="showcases section-bg">
+      <section class="showcases section-bg" id="showcases">
         <h2 class="title1">成功案例</h2>
         <div class="filter-btns">
           <button class="filter-btn active" data-filter="*">全部</button>
@@ -179,7 +180,7 @@
           </div>
         </div>
       </section>
-      <section class="service">
+      <section class="service" id="service">
         <h2 class="title1">服务流程</h2>
         <p class="intro">
           网络综合公司，提供包括网络基础服务（如域名，主机，邮箱）和网络增值服务（如网站建设和推广，网站优化）等业务
@@ -229,7 +230,7 @@
           </div>
         </div>
       </section>
-      <section class="team-intro section-bg">
+      <section class="team-intro section-bg" id="team-intro">
         <h2 class="title1">团队成员</h2>
         <div class="team-members">
           <div class="team-member">
@@ -346,7 +347,7 @@
           <div class="data-desc">个项目</div>
         </div>
       </section>
-      <section class="company-activities">
+      <section class="company-activities" id="company-activities">
         <h2 class="title1">公司动态</h2>
         <p class="intro">关注公司动态， 第一时间获取第一手消息</p>
         <div class="activities">
@@ -447,13 +448,14 @@
         <p class="icp-info">备案号： xxxxx</p>
         <p class="rights">&copy; 2020 原子科技公司 版权所有</p>
         <div class="scrollToTop">
-          <a href="#"><i class="fas fa-chevron-up"></i></a>
+          <a href="#home"><i class="fas fa-chevron-up"></i></a>
         </div>
       </div>
     </footer>
     <script src="libs/glide/glide.min.js"></script>
     <script src="libs/anime/anime.min.js"></script>
     <script src="libs/isotope/isotope.pkgd.min.js"></script>
+    <script src="libs/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
