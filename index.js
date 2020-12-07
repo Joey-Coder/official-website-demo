@@ -24,3 +24,24 @@ glide.on("run.before", () => {
 });
 
 glide.mount();
+
+const isotope = new Isotope(".cases", {
+  layoutMode: "fitRows",
+  itemSelector: ".case-item",
+});
+
+const filterBtns = document.querySelector(".filter-btns");
+filterBtns.addEventListener("click", (e) => {
+  let { target } = e;
+  // 获取被点击按钮对象
+  const filterOption = target.getAttribute("data-filter");
+  if (filterOption) {
+    // 清除所有active
+    document
+      .querySelectorAll(".filter-btn.active")
+      .forEach((btn) => btn.classList.remove("active"));
+    // 给被点击类添加active
+    target.classList.add("active");
+    isotope.arrange({ filter: filterOption });
+  }
+});

@@ -227,6 +227,7 @@ section {
   margin: 0 7px;
   background-color: var(--secondary-color);
   border: 0;
+  border-radius: 5px;
   color: var(--text-color-dark-gray);
   padding: 8px 18px;
   cursor: pointer;
