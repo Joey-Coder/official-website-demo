@@ -117,3 +117,8 @@ exploreBtnEls.forEach((exploreBtnEl) => {
     scroll.animateScroll(document.querySelector("#about-us"));
   });
 });
+
+const burgerEl = document.querySelector(".burger");
+burgerEl.addEventListener("click", () => {
+  headerEl.classList.toggle("open");
+});

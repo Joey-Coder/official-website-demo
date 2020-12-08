@@ -4,11 +4,6 @@
   box-sizing: border-box;
   font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
 }
-
-img {
-  width: 100%;
-}
-
 :root {
   --primary-color: #ff434f;
   --secondary-color: #e3e3e3;
@@ -19,6 +14,10 @@ img {
   --text-color-dark-gray: #727272;
   --text-color-light-gray: #c6c6c6;
   --backdrop-color: rgba(42, 42, 42, 0.69);
+}
+
+img {
+  width: 100%;
 }
 
 header {
@@ -73,7 +72,7 @@ header nav a {
   text-decoration: none;
   margin: 0 24px;
 }
-header .burger {
+.burger {
   display: none;
 }
 
@@ -589,4 +588,214 @@ footer {
   position: fixed;
   bottom: 66px;
   right: 66px;
+}
+
+@media (max-width: 1110px) {
+  header {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header nav {
+    display: none;
+  }
+
+  header .burger {
+    display: block;
+    width: 20px;
+    height: 6px;
+    position: relative;
+    justify-self: end;
+    cursor: pointer;
+  }
+
+  .burger-line1,
+  .burger-line2,
+  .burger-line3 {
+    width: 20px;
+    height: 2px;
+    background-color: var(--text-color-lightest);
+  }
+
+  .burger-line1 {
+    position: absolute;
+    top: -6px;
+  }
+
+  .burger-line3 {
+    position: absolute;
+    top: 6px;
+  }
+
+  header.open nav {
+    display: grid;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    /* 根据内容划分珊格大小 */
+    grid-auto-rows: max-content;
+    justify-items: end;
+    padding: 0 40px;
+    opacity: 0;
+    animation: slideDown 0.6s ease-out forwards;
+  }
+
+  header.open .burger-line1,
+  header.open .burger-line2,
+  header.open .burger-line3,
+  header.sticky .burger-line1,
+  header.sticky .burger-line2,
+  header.sticky .burger-line3 {
+    background-color: var(--text-color-darker);
+  }
+
+  header.open .burger-line1 {
+    transform: rotate(45deg) translate(3px, 5px);
+  }
+
+  header.open .burger-line2 {
+    transform: translateX(5px);
+    opacity: 0;
+  }
+
+  header.open .burger-line3 {
+    transform: rotate(-45deg) translate(3px, -5px);
+  }
+
+  header.open .logo {
+    z-index: 40;
+    color: var(--text-color-darker);
+  }
+  header.open nav > * {
+    animation: showMenu 0.5s linear forwards 0.4s;
+    color: var(--text-color-darker);
+    font-size: 18px;
+    margin: 4px 0;
+    opacity: 0;
+  }
+
+  header.open nav > i.fas {
+    margin-top: 10px;
+  }
+
+  @keyframes slideDown {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: 100vh;
+      padding-top: 80px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes showMenu {
+    from {
+      opacity: 0;
+      transform: translateY(-1vh);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .service-item .service-title {
+    font-size: 20px;
+  }
+  .service-item .service-content {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .team-members {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 36px;
+    column-gap: 6vw;
+  }
+
+  .activities {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 36px;
+  }
+}
+
+@media (max-width: 992px) {
+  .slide-caption h1 {
+    font-size: 48px;
+  }
+  .slide-caption h3 {
+    font-size: 18px;
+  }
+  .features,
+  .services {
+    grid-template-columns: 1fr 1fr;
+    /* unset取消之前的设置 */
+    grid-template-rows: unset;
+  }
+  .data-section {
+    grid-template-columns: repeat(2, minmax(200px, auto));
+    padding: 24px 0;
+    height: auto;
+    row-gap: 20px;
+    background-size: 300%;
+  }
+  .showcases .case-item {
+    width: calc(100vw / 3);
+  }
+}
+
+@media (max-width: 768px) {
+  section,
+  .footer-menus {
+    padding: 0 40px;
+  }
+  .footer-menus {
+    grid-template-columns: 2fr repeat(2, 1fr);
+    row-gap: 24px;
+  }
+  .contact-us {
+    grid-row: 1/3;
+  }
+  .footer-menu {
+    text-align: right;
+  }
+  .activities {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .slide-caption h1 {
+    font-size: 28px;
+  }
+  .slide-caption h3 {
+    font-size: 14px;
+  }
+  .explore-btn {
+    font-size: 14px;
+    padding: 8px 18px;
+  }
+  .showcases .case-item {
+    width: 100vw;
+    height: 60vw;
+  }
+  .footer-menus {
+    grid-template-columns: 1fr;
+  }
+  .footer-menu {
+    justify-self: start;
+    text-align: left;
+  }
+  .services,
+  .features,
+  .team-members {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+  .social-links {
+    padding: 0 24px;
+  }
 }
