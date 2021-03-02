@@ -73,6 +73,7 @@ const staggeringOption = {
   duration: 500,
   easing: "ease-in-out",
   origin: "bottom",
+  reset: true,
 };
 const dataSectionEl = document.querySelector(".data-section");
 ScrollReveal().reveal(".feature", { ...staggeringOption, interval: 350 });
