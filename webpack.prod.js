@@ -1,6 +1,7 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
@@ -28,4 +29,14 @@ module.exports = merge(common, {
       },
     }),
   ],
+  optimization: {
+    // 压缩css
+    minimize: true,
+    minimizer: [
+      // 在 webpack@5 中，你可以使用 `...` 语法来扩展现有的 minimizer（即 `terser-webpack-plugin`），将下一行取消注释
+      new CssMinimizerPlugin({
+        parallel: true,
+      }),
+    ],
+  },
 });
