@@ -2,8 +2,9 @@ const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const { default: merge } = require("webpack-merge");
 // const ESLintPlugin = require("eslint-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+// const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   // 打包入口文件
@@ -46,13 +47,13 @@ module.exports = {
       // 处理图片
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        type: "asset",
+        type: "asset/resource",
       },
 
       // 处理字体
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset",
+        type: "asset/resource",
       },
       // 处理html中的图片
       {
@@ -65,17 +66,24 @@ module.exports = {
         exclude: /(node_modules|bower_components|libs)/,
         use: [
           // 并行打包
-          // {
-          //   loader: "thread-loader",
-          //   options: {
-          //     workers: 2,
-          //   },
-          // },
+          {
+            loader: "thread-loader",
+            options: {
+              workers: 2,
+            },
+          },
           {
             loader: "babel-loader",
             options: {
               presets: ["@babel/preset-env"],
-              plugins: ["@babel/plugin-transform-runtime"],
+              plugins: [
+                [
+                  "@babel/plugin-transform-runtime",
+                  {
+                    corejs: 3,
+                  },
+                ],
+              ],
             },
           },
         ],
@@ -84,7 +92,7 @@ module.exports = {
   },
   plugins: [
     // 创建前清空 dist 文件夹
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(),
     // 打包html
     new HtmlWebpackPlugin({
       template: "./index.html",
@@ -130,17 +138,21 @@ module.exports = {
     minimize: true,
     minimizer: [
       // 在 webpack@5 中，你可以使用 `...` 语法来扩展现有的 minimizer（即 `terser-webpack-plugin`），将下一行取消注释
-      `...`,
       new CssMinimizerPlugin({
         parallel: true,
       }),
     ],
   },
   externals: {
-    Glide: "Glide",
-    ScrollReveal: "ScrollReveal",
-    anime: "anime",
-    isotope: "isotope",
-    SmoothScroll: "SmoothScroll",
+    subtract: ["./libs", "anime"],
+    subtract: ["./libs", "glide"],
+    subtract: ["./libs", "isotope"],
+    subtract: ["./libs", "scrollReveal"],
+    // subtract: ["./libs", "smooth-scroll"],
+    // Glide: "Glide",
+    // ScrollReveal: "ScrollReveal",
+    // anime: "anime",
+    // isotope: "isotope",
+    // SmoothScroll: "SmoothScroll",
   },
 };
