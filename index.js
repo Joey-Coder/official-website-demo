@@ -1,3 +1,13 @@
+import "./style.css";
+import "./libs/glide/glide.core.min.css";
+import "./libs/glide/glide.theme.min.css";
+
+// import "./libs/scrollReveal/scrollreveal.min.js";
+// import "./libs/glide/glide.min.js";
+// import "./libs/anime/anime.min.js";
+// import "./libs/isotope/isotope.pkgd.min";
+// import "./libs/smooth-scroll/smooth-scroll.polyfills.min";
+
 const glide = new Glide(".glide");
 
 const captionsEl = document.querySelectorAll(".slide-caption");
@@ -7,7 +17,7 @@ const scrollToTop = document.querySelector(".scrollToTop");
 // 滚动导航栏展现
 window.addEventListener("scroll", () => {
   // 获取header本身高度
-  let height = headerEl.getBoundingClientRect().height;
+  const { height } = headerEl.getBoundingClientRect();
   if (window.pageYOffset - height > 800) {
     if (!headerEl.classList.contains("sticky")) {
       headerEl.classList.add("sticky");
@@ -52,7 +62,7 @@ const isotope = new Isotope(".cases", {
 
 const filterBtns = document.querySelector(".filter-btns");
 filterBtns.addEventListener("click", (e) => {
-  let { target } = e;
+  const { target } = e;
   // 获取被点击按钮对象
   const filterOption = target.getAttribute("data-filter");
   if (filterOption) {
@@ -83,9 +93,7 @@ ScrollReveal().reveal(".data-section", {
   beforeReveal: () => {
     anime({
       targets: ".data-piece .num",
-      innerHTML: (el) => {
-        return [0, el.innerHTML];
-      },
+      innerHTML: (el) => [0, el.innerHTML],
       duration: 2000,
       round: 1,
       easing: "easeInExpo",
@@ -97,8 +105,8 @@ ScrollReveal().reveal(".data-section", {
 });
 
 window.addEventListener("scroll", () => {
-  const bottom = dataSectionEl.getBoundingClientRect().bottom;
-  const top = dataSectionEl.getBoundingClientRect().top;
+  const { bottom } = dataSectionEl.getBoundingClientRect();
+  const { top } = dataSectionEl.getBoundingClientRect();
   if (bottom >= 0 && top <= window.innerHeight) {
     dataSectionEl.style.backgroundPosition = `center calc(50% - ${
       bottom / 5
